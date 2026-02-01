@@ -1,0 +1,106 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+.navbar {
+    height : 5rem;
+    background-color: white;
+    
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials{
+    width: 100%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.show-image{
+    height: 30vh;
+}
+
+.popup-card {
+  font-family: Arial, sans-serif;
+  padding: 5px;
+}
+
+.popup-card h5 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.popup-card .price {
+  margin: 4px 0;
+  font-weight: 600;
+  color: #ff385c; /* Airbnb-like color */
+}
+
+.popup-card .location {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+}

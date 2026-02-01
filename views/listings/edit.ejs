@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+        <form method="POST" action="/listing/<%=editListing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <h3>Edit listing :</h3>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name="Edit[title]" type="text" value="<%=editListing.title%>" class="form-control" required>
+            <div class="invalid-feedback">Title needed</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="Edit[description]" class="form-control" required><%=editListing.description%></textarea>
+            <div class="invalid-feedback">Please enter some description.</div>
+        </div>
+        <div class="mb-3 ">
+            Original Listing Image <br>
+            <img src="<%=originalImage%>">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload a new image</label>
+            <input name="Edit[image]" type="file"  class="form-control">
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-3">
+                <label for="price" class="form-label">Price</label>
+                <input name="Edit[price]" type="number" value="<%=editListing.price%>" class="form-control" required>
+                <div class="invalid-feedback">Price required</div>
+            </div>
+
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input name="Edit[country]" type="text" value="<%=editListing.country%>" class="form-control" required>
+                <div class="invalid-feedback">Country required</div>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input name="Edit[location]" type="text" value="<%=editListing.location%>" class="form-control" required>
+            <div class="invalid-feedback">Location required</div>
+        </div>
+        <br><br>
+        
+        <button class="btn btn-dark">Update changes</button><br><br>
+        </form>
+        </div>
+    </div>
+    
+</body>
