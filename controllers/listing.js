@@ -13,13 +13,15 @@ module.exports.getNew = (req, res) => {
 }
 
 module.exports.postNew = async (req, res) => {
-    let url = req.file.path;
-    let filename = req.file.filename;
+    console.log("here" , req.file)
+    const { cloudinary } = require("../cloudConfig");
 
-    let result = listingSchema.validate(req.body);
-    if (result.error) {
-        throw new ExpressError(400, result.error);
-    }
+    const result = await cloudinary.uploader.upload(req.file.path);
+
+    let url = result.secure_url;
+    let filename = result.public_id;
+
+    
 
     let newListing = req.body.listing;
 
@@ -76,10 +78,16 @@ module.exports.putEdit = async (req, res) => {
     let lisitng = await listing.findByIdAndUpdate(id, {...req.body.Edit})
 
     if(typeof req.file!== "undefined"){
-        let url = req.file.path
-        let filename = req.file.filename 
-        lisitng.image = {url , filename}
-        await lisitng.save()
+        const { cloudinary } = require("../cloudConfig");
+
+        const result = await cloudinary.uploader.upload(req.file.path);
+
+        lisitng.image = {
+            url: result.secure_url,
+            filename: result.public_id
+        };
+
+        await lisitng.save();
     }
     
     req.flash("success", "Listing updated successfully!")

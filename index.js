@@ -23,11 +23,13 @@ const user = require("./routes/user.js")
 
 app.engine("ejs", ejsMate)
 
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+
 app.use(express.static(path.join(__dirname, "/public")))
 app.use(methodOverride("_method"))
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
-app.use(express.urlencoded({extended: true}))
 
 
 const dbURL = process.env.ATLASDB_URL
