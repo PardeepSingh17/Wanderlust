@@ -25,6 +25,8 @@ module.exports.postNew = async (req, res) => {
 
     let newListing = req.body.listing;
 
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     const geoResponse = await axios.get("https://nominatim.openstreetmap.org/search", {
         params: {
             q: newListing.location,
