@@ -43,7 +43,7 @@ main().then(() => {
 });
 
 const store = MongoStore.create({
-    mongoURL : dbURL,
+    mongoUrl : dbURL,
     collectionName: "sessions",
     crypto : {
         secret : process.env.SECRET
